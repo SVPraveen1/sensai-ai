@@ -1,15 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import Header from "@/components/header";
+import { ClerkProvider } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] }); //font family
 
 export const metadata = {
   title: "Create Next App",
@@ -18,12 +13,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className}`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {/*header*/}
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            {/*footer*/}
+            <footer className="bg-muted/50 py-12">
+              <div className="container mx-auto px-4 text-gray-200 text-center">
+                <p>This is footer component</p>
+              </div>
+            </footer>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
