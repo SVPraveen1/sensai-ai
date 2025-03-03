@@ -75,7 +75,7 @@ Sensai AI is a cutting-edge learning platform that harnesses artificial intellig
 
 - React.js
 
-- TypeScript
+- Javascript
 
 - Tailwind CSS
 
