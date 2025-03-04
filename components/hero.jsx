@@ -29,7 +29,7 @@ const HeroSection = () => {
   return (
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
-        <div className="space-y-6 mx-auto" >
+        <div className="space-y-6 mx-auto">
           <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title animate-gradient">
             Your AI Career Coach for
             <br />
@@ -50,7 +50,7 @@ const HeroSection = () => {
         <div className="hero-image-wrapper mt-5 md:mt-0">
           <div ref={imageRef} className="hero-image">
             <Image
-              src="/hero.jpeg"
+              src="/banner.png"
               width={980}
               height={520}
               alt="Dashboard Preview"
